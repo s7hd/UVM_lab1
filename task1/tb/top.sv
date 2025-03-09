@@ -20,8 +20,7 @@ module top;
       packet.print();
       
       // Additional experiments with different print formats, clone, copy, compare
-      // Uncomment to try them:
-      /*
+     
       // Different print formats
       packet.print(uvm_default_table_printer);
       packet.print(uvm_default_tree_printer);
