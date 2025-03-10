@@ -1,16 +1,18 @@
 // Enum type for parity control
 typedef enum bit {GOOD_PARITY, BAD_PARITY} parity_type_e;
 
+
+//uvm_sequence_item
 class yapp_packet extends uvm_sequence_item;
-  // Packet fields based on YAPP specification
+  // (uvm_sequence_item) contain Packet fields based on YAPP specification
   rand bit [1:0]  addr;     // 2-bit address specifier for the channel
   rand bit [5:0]  length;   // 6-bit length specifier for payload size
   rand bit [7:0]  payload[];// Variable payload array
   bit [7:0]       parity;   // Parity byte
   
-  // Control knobs
-  rand parity_type_e parity_type;
-  rand int packet_delay;
+  // Control knobs : to control specific properties of the packet (yapp_packet) through simulation
+  rand parity_type_e parity_type; //good or bad parity
+  rand int packet_delay; //amunte of delay
   
   // UVM automation macros
   `uvm_object_utils_begin(yapp_packet)
